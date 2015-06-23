@@ -1,0 +1,20 @@
+//Old loop
+	//~ while(1){
+	
+ 		//~ if(counter >= (PERIOD / dt) * numOrbits){
+  			//~ fout.close();
+  			//~ break;
+  		//~ }
+
+                //~ evaluate(accelFunc, pos, vel, t, dt, posNew, velNew);
+		
+                //~ fout <<  posNew[0] << '\t' << posNew[1] << '\t' << posNew[2] << "\t0\t0\t0\t"
+			//~ << velNew[0] << '\t' << velNew[1] <<  '\t' << velNew[2] << '\n';
+	
+		//~ for(int i = 0; i < 3; ++i){
+			//~ pos[i] = posNew[i];
+			//~ vel[i] = velNew[i];
+		//~ }
+		
+                //~ counter++;
+        //~ }
