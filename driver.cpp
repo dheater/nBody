@@ -1,5 +1,6 @@
 #include <iostream>
 #include "headers/classBody.hpp"
+#include "headers/vecManip.hpp"
 
 int main(void){
 	
@@ -31,6 +32,17 @@ int main(void){
 		
 		std::cout << "\n\n";
 	}
+	
+	earth.setPosNew({10,20,35});
+	
+	for(int i(0);i<3;++i){
+		std::cout << earth.getPosNew()[i] << ' ';
+	}
+	
+	std::cout << "\n\n";
+	
+	
+	
 	
 	return 0;
 }

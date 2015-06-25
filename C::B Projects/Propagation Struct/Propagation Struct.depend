@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1435155123 source:/SPICE/nbody/test.cpp
+	"headers/vecManip.hpp"
+	"headers/RK4.hpp"
+	<fstream>
+	<iostream>
+
+1435156500 /SPICE/nbody/headers/vecManip.hpp
+	<stdlib.h>
+	<math.h>
+	<iostream>
+	<vector>
+
+1435153144 /SPICE/nbody/headers/RK4.hpp
+	<vector>
+	<iostream>
+	<stdlib.h>
+

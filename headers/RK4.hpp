@@ -14,13 +14,13 @@ template<typename T, typename F> void evaluate(
 	std::vector<T> &posOut,
 	std::vector<T> &velOut)
 	{
-		
+
 		if(posIn.size() !=3 || velIn.size() != 3){
 			std::cerr << "\n\tERROR: Size of state vector must be 3\n\tTerminating Processes...\n\n";
-			std::exit(EXIT_FAILURE);
+			std::exit(1);
 		}
-		
-		T halfDt = dt * (T)(0.5);
+
+		T halfDt = dt * 0.5;
 		T tMid = t + halfDt;
 		std::vector<T> dVelIn = derivFunc(posIn, velIn, t);
 		std::vector<T> velB = VecAdd(velIn, VecScaleMulti(dVelIn, halfDt)); // velB = velIn + dVelIn * halfDt;
@@ -32,12 +32,12 @@ template<typename T, typename F> void evaluate(
 		std::vector<T> velD = VecAdd(velC, VecScaleMulti(dVelC, dt)); // velC + dVelC * dt;
 		std::vector<T> posD = VecAdd(posC, VecScaleMulti(velC, dt)); // posC + velC * dt;
 		std::vector<T> dVelD = derivFunc(posD, velD, t + dt);
-		
+
 		//velOut = velIn + dt * T(1.0 / 6.0) * (dVelIn + T(2.0) * (dVelB + dVelC) + dVelD);
 		velOut = VecAdd(velIn, VecScaleMulti(VecScaleMulti(VecAdd(dVelD, VecAdd(dVelIn, VecScaleMulti(VecAdd(dVelB, dVelC), (T)(2.0)))),(T)(1.0/6.0)), dt));
-		
+
 		//posOut = posIn + dt * T(1.0 / 6.0) * (velIn + T(2.0) * (velB + velC) + velD);
 		posOut = VecAdd(posIn, VecScaleMulti(VecScaleMulti(VecAdd(velD, VecAdd(velIn, VecScaleMulti(VecAdd(velB, velC),(T)(2.0)))), (T)(1.0/6.0)), dt));
 	}
-	
+
 #endif
